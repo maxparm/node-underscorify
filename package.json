@@ -1,0 +1,29 @@
+{
+  "name": "underscorify",
+  "version": "0.0.1",
+  "description": "Underscore precompiler plugin for Browserify v2",
+  "main": "index.js",
+  "scripts": {
+    "test": "node test/test.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/maxparm/node-underscorify"
+  },
+  "keywords": [
+    "template",
+    "underscore",
+    "browserify",
+    "v2",
+    "js",
+    "transform"
+  ],
+  "author": "Maxime Parmentier",
+  "dependencies": {
+    "through": "~2.2.7",
+    "underscore": "1.5.1"
+  },
+  "devDependencies": {
+    "browserify": "~2.4.0"
+  }
+}
