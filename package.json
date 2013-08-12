@@ -1,6 +1,6 @@
 {
   "name": "node-underscorify",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Underscore precompiler plugin for Browserify v2",
   "main": "index.js",
   "scripts": {
