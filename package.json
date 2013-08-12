@@ -19,6 +19,7 @@
     "transform"
   ],
   "author": "Maxime Parmentier",
+  "license": "MIT",
   "dependencies": {
     "through": "~2.2.7",
     "underscore": "1.5.1"
