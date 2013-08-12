@@ -20,13 +20,10 @@
   ],
   "author": "Maxime Parmentier",
   "dependencies": {
-    "through": "~2.2.7"
-  },
-  "peerDependencies": {
+    "through": "~2.2.7",
     "underscore": "1.5.1"
   },
   "devDependencies": {
-    "browserify": "~2.4.0",
-    "underscore": "1.5.1"
+    "browserify": "~2.4.0"
   }
 }
