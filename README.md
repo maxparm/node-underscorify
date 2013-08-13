@@ -29,6 +29,3 @@ document.body.innerHTML = template({message: "Hello Node Underscorify!"});
 ```
 
 It will render: `<div>Hello Node Underscorify!</div>`
-
-
-More informations: https://npmjs.org/package/node-underscorify
