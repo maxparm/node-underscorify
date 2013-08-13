@@ -4,27 +4,31 @@ Underscore precompiler plugin for Browserify v2.
 
 Inspired and based on [node-hbsfy](https://github.com/epeli/node-hbsfy)
 
+## Setup
+
+Install node-underscorify in your project via npm:
+
+`npm install node-underscorify`
+
+Then use the node-underscorify within the browserify command line transform option:
+
+`browserify -t node-underscorify main.js > bundle.js`
+
+
 ## Usage
 
-Install node-underscorify:
+##### template.html
+```
+<div><%= message %></div>
+```
 
-    npm install node-underscorify
-
-Then use it as Browserify transform module with `-t`:
-
-    browserify -t node-underscorify main.js > bundle.js
-
-Then in your code
-
-```javascript
+##### main.js
+```
 var template = require("./template.html");
-document.body.innerHTML = template({ name: "Node Underscorify" });
+document.body.innerHTML = template({message: "Hello Node Underscorify!"});
 ```
 
-and template.html:
+It will render: `<div>Hello Node Underscorify!</div>`
 
-```html
-<h1>Hello {{name}}!</h1>
-```
 
-You can also use .tpl files.
+More informations: https://npmjs.org/package/node-underscorify
