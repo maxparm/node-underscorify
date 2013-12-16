@@ -14,6 +14,26 @@ Then use the node-underscorify within the browserify command line transform opti
 
 `browserify -t node-underscorify main.js > bundle.js`
 
+### Advanced setup thru API
+
+node-underscorify can accept custom options unsing browserify API:
+
+```js
+var b = require('browserify')();
+
+var tplTransform = require('node-underscorify').transform({
+    extensions: ['ejs', 'html']
+});
+b.transform(tplTransform);
+
+b.add('./browser/main.js');
+b.bundle().pipe(process.stdout);
+```
+
+Accepted options:
+- `extensions`: array of file extensions that will be considered as underscore
+templates
+- `templateSettings`: underscore [template settings](http://underscorejs.org/#template)
 
 ## Usage
 
