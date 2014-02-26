@@ -15,7 +15,7 @@ module.exports = function(file) {
     return buffer += chunk.toString();
   }, function() {
     var compiled, jst;
-    compiled = "_ = require('underscore');\n";
+    compiled = "var _ = require('underscore');\n";
     jst = _.template(buffer.toString()).source;
     compiled += "module.exports = " + jst + ";\n";
     this.queue(compiled);
