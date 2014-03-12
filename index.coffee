@@ -23,7 +23,7 @@ transform = (options) ->
                 buffer += chunk.toString()
         ,
             () ->
-                compiled = "_ = require('underscore');\n";
+                compiled = "";
                 jst = _.template(
                     buffer.toString(),
                     undefined,
