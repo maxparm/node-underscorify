@@ -1,10 +1,12 @@
 through = require('through')
 _ = require("underscore")
+minify = require("html-minifier").minify
 path = require('path')
 
 defaultOptions =
     extensions: ['tpl', 'html']
     templateSettings: {}
+    htmlMinifier: false
 
 transform = (options) ->
     options = _.defaults(options || {}, defaultOptions)
@@ -24,8 +26,11 @@ transform = (options) ->
         ,
             () ->
                 compiled = "";
+                html = buffer.toString()
+                if options.htmlMinifier
+                    html = minify(html, options.htmlMinifier)
                 jst = _.template(
-                    buffer.toString(),
+                    html,
                     undefined,
                     options.templateSettings
                     ).source;
