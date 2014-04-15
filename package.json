@@ -1,6 +1,6 @@
 {
   "name": "node-underscorify",
-  "version": "0.0.8",
+  "version": "0.0.9",
   "description": "Underscore precompiler plugin for Browserify v2",
   "main": "index.js",
   "scripts": {
@@ -18,6 +18,9 @@
     "js",
     "transform"
   ],
+  "engines": {
+    "node": ">=0.10"
+  },
   "author": "Maxime Parmentier",
   "license": "MIT",
   "dependencies": {
