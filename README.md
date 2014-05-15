@@ -34,6 +34,7 @@ Accepted options:
 - `extensions`: array of file extensions that will be considered as underscore
 templates
 - `templateSettings`: underscore [template settings](http://underscorejs.org/#template)
+- `requires`: array of modules to import. Example: `requires:[{variable: '_', module: 'underscore'}]`
 
 ## Usage
 
