@@ -37,7 +37,7 @@
           html = minify(html, options.htmlMinifier);
         }
         jst = _.template(html, void 0, options.templateSettings).source;
-        compiled += "module.exports = " + jst + ";\n";
+        compiled += "var _ = window._ || require('underscore');\n module.exports = " + jst + ";\n";
         this.queue(compiled);
         return this.queue(null);
       });
