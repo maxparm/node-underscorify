@@ -7,14 +7,13 @@ defaultOptions =
     extensions: ['tpl', 'html']
     templateSettings: {}
     htmlMinifier: false
+    requires: []
 
 transform = (options) ->
     options = _.defaults(options || {}, defaultOptions)
 
     return (file) ->
-        # test if it matches one the extensions
         isTemplate = _.some options.extensions, (ext) ->
-            # extname returns '.html' not 'html'
             path.extname(file) is '.'+ext
 
         return through() if not isTemplate
@@ -26,6 +25,12 @@ transform = (options) ->
         ,
             () ->
                 compiled = "";
+                if options.requires.length
+                    compiled = _.reduce(options.requires, (s, r) ->
+                        if r.variable and r.module
+                            s += r.variable + ' = require("' + r.module + '");' + "\n"
+                        s
+                    , '')
                 html = buffer.toString()
                 if options.htmlMinifier
                     html = minify(html, options.htmlMinifier)
