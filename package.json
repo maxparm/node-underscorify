@@ -1,6 +1,6 @@
 {
   "name": "node-underscorify",
-  "version": "0.0.11",
+  "version": "0.0.12",
   "description": "Underscore precompiler plugin for Browserify v2",
   "main": "index.js",
   "scripts": {
@@ -25,10 +25,10 @@
   "license": "MIT",
   "dependencies": {
     "html-minifier": "^0.5.6",
-    "through": "~2.2.7",
-    "underscore": "~1.6.0"
+    "through": "^2.3.4",
+    "underscore": "^1.7.0"
   },
   "devDependencies": {
-    "browserify": "~2.4.0"
+    "browserify": "^5.10.1"
   }
 }
