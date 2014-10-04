@@ -17,9 +17,11 @@ Then use the node-underscorify within the browserify command line transform opti
 Or add the transform to your `package.json`:
 
 ```json
+{
     "browserify": {
         "transform": ["node-underscorify"]
     }
+}
 ```
 
 ### Custom options
@@ -36,6 +38,7 @@ browserify -t [ node-underscorify --extensions html,ejs ] main.js > bundle.js
 Or in `package.json`:
 
 ```json
+{
     "browserify": {
         "transform": [
             ["node-underscorify", {
@@ -44,6 +47,7 @@ Or in `package.json`:
             }]
         ]
     }
+}
 ```
 
 ### Accepted options
