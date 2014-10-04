@@ -14,7 +14,7 @@ transform = (instance_opts) ->
 
     return (file, opts) ->
         if typeof(opts['extensions']) is 'string'
-          opts['extensions'] = [opts['extensions']]
+          opts['extensions'] = opts['extensions'].split ','
         options = _.defaults(opts || {}, instance_opts)
 
         isTemplate = _.some options.extensions, (ext) ->

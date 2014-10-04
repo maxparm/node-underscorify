@@ -21,7 +21,7 @@ transform = function(instance_opts) {
   return function(file, opts) {
     var buffer, isTemplate, options;
     if (typeof opts['extensions'] === 'string') {
-      opts['extensions'] = [opts['extensions']];
+      opts['extensions'] = opts['extensions'].split(',');
     }
     options = _.defaults(opts  || {}, instance_opts);
     isTemplate = _.some(options.extensions, function(ext) {
