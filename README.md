@@ -1,6 +1,6 @@
 # node-underscorify
 
-Underscore precompiler plugin for Browserify v2.
+Underscore precompiler plugin for Browserify.
 
 Inspired and based on [node-hbsfy](https://github.com/epeli/node-hbsfy)
 
