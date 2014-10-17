@@ -20,10 +20,10 @@ transform = function(instance_opts) {
   instance_opts = _.defaults(instance_opts  || {}, defaultOptions);
   return function(file, opts) {
     var buffer, isTemplate, options;
-    if (typeof opts['extensions'] === 'string') {
+    if (opts && typeof opts['extensions'] === 'string') {
       opts['extensions'] = opts['extensions'].split(',');
     }
-    options = _.defaults(opts  || {}, instance_opts);
+    options = _.defaults(opts || {}, instance_opts);
     isTemplate = _.some(options.extensions, function(ext) {
       return path.extname(file) === '.' + ext;
     });
