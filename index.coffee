@@ -28,7 +28,7 @@ transform = (options) ->
                 if options.requires.length
                     compiled = _.reduce(options.requires, (s, r) ->
                         if r.variable and r.module
-                            s += r.variable + ' = require("' + r.module + '");' + "\n"
+                            s += 'var ' + r.variable + ' = require("' + r.module + '");' + "\n"
                         s
                     , '')
                 html = buffer.toString()
