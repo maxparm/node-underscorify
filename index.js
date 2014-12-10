@@ -18,9 +18,10 @@ defaultOptions = {
 
 transform = function(options) {
   options = _.defaults(options  || {}, defaultOptions);
-  return function(file) {
+  return function( file, option_overrides ) {
     var buffer, isTemplate;
-    isTemplate = _.some(options.extensions, function(ext) {
+	  _.defaults( option_overrides, options );
+    isTemplate = _.some( option_overrides.extensions, function(ext) {
       return path.extname(file) === '.' + ext;
     });
     if (!isTemplate) {
@@ -32,8 +33,8 @@ transform = function(options) {
     }, function() {
       var compiled, html, jst;
       compiled = "";
-      if (options.requires.length) {
-        compiled = _.reduce(options.requires, function(s, r) {
+      if (option_overrides.requires.length) {
+        compiled = _.reduce(option_overrides.requires, function(s, r) {
           if (r.variable && r.module) {
             s += 'var ' + r.variable + ' = require("' + r.module + '");' + "\n";
           }
@@ -41,10 +42,10 @@ transform = function(options) {
         }, '');
       }
       html = buffer.toString();
-      if (options.htmlMinifier) {
-        html = minify(html, options.htmlMinifier);
+      if (option_overrides.htmlMinifier) {
+        html = minify(html, option_overrides.htmlMinifier);
       }
-      jst = _.template(html, void 0, options.templateSettings).source;
+      jst = _.template(html, void 0, option_overrides.templateSettings).source;
       compiled += "module.exports = " + jst + ";\n";
       this.queue(compiled);
       return this.queue(null);
