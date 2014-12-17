@@ -20,6 +20,7 @@ transform = function(options) {
   options = _.defaults(options  || {}, defaultOptions);
   return function( file, option_overrides ) {
     var buffer, isTemplate;
+	  option_overrides = option_overrides || {};
 	  _.defaults( option_overrides, options );
     isTemplate = _.some( option_overrides.extensions, function(ext) {
       return path.extname(file) === '.' + ext;
