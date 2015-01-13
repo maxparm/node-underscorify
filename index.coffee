@@ -9,10 +9,14 @@ defaultOptions =
     htmlMinifier: false
     requires: []
 
-transform = (options) ->
-    options = _.defaults(options || {}, defaultOptions)
+transform = (instance_opts) ->
+    instance_opts = _.defaults(instance_opts || {}, defaultOptions)
 
-    return (file) ->
+    return (file, opts) ->
+        if typeof(opts['extensions']) is 'string'
+          opts['extensions'] = opts['extensions'].split ','
+        options = _.defaults(opts || {}, instance_opts)
+
         isTemplate = _.some options.extensions, (ext) ->
             path.extname(file) is '.'+ext
 
