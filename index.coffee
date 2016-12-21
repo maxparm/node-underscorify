@@ -38,11 +38,15 @@ transform = (instance_opts) ->
                 html = buffer.toString()
                 if options.htmlMinifier
                     html = minify(html, options.htmlMinifier)
-                jst = _.template(
-                    html,
-                    undefined,
-                    options.templateSettings
-                    ).source;
+                try
+                    jst = _.template(
+                        html,
+                        undefined,
+                        options.templateSettings
+                        ).source;
+                catch e
+                    @emit('error', e)
+                
                 compiled += "module.exports = " + jst + ";\n";
                 @queue(compiled)
                 @queue(null)
