@@ -13,9 +13,9 @@ transform = (instance_opts) ->
     instance_opts = _.defaults(instance_opts || {}, defaultOptions)
 
     return (file, opts) ->
-        if typeof(opts['extensions']) is 'string'
-          opts['extensions'] = opts['extensions'].split ','
         options = _.defaults(opts || {}, instance_opts)
+        if typeof(options['extensions']) is 'string'
+          options['extensions'] = options['extensions'].split ','
 
         isTemplate = _.some options.extensions, (ext) ->
             path.extname(file) is '.'+ext
