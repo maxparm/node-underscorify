@@ -3,17 +3,17 @@ _ = require("underscore")
 minify = require("html-minifier").minify
 path = require('path')
 
-defaultOptions =
+default_options =
     extensions: ['tpl', 'html']
     templateSettings: {}
     htmlMinifier: false
     requires: []
 
 transform = (instance_opts) ->
-    instance_opts = _.defaults(instance_opts || {}, defaultOptions)
+    instance_opts = _.extend({}, default_options, instance_opts || {})
 
     return (file, opts) ->
-        options = _.defaults(opts || {}, instance_opts)
+        options = _.extend({}, instance_opts, opts || {})
         if typeof(options['extensions']) is 'string'
           options['extensions'] = options['extensions'].split ','
 
